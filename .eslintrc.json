@@ -28,7 +28,8 @@
     ],
     "prettier/prettier": "error",
     "class-methods-use-this": "off",
-    "no-self-assign":"off"
+    "no-self-assign":"off",
+    "camelcase": "off"
   },
   "settings": {
     "import/resolver": {
