@@ -23,7 +23,7 @@ describe('UpdateUserAvatar', () => {
       avatarFilename: 'avatar.jpg',
     });
 
-    expect(user.avatar).toBe('avatar.jpg');
+    await expect(user.avatar).toBe('avatar.jpg');
   });
 
   it('should not be able to update avatar of a user that does not exist', async () => {
@@ -35,7 +35,7 @@ describe('UpdateUserAvatar', () => {
       fakeStorageProvider,
     );
 
-    expect(
+    await expect(
       updateUserAvatar.execute({
         user_id: 'nonexistent-user',
         avatarFilename: 'avatar.jpg',
@@ -70,8 +70,8 @@ describe('UpdateUserAvatar', () => {
       avatarFilename: 'avatar2.jpg',
     });
 
-    expect(deleteFile).toHaveBeenCalledWith('avatar.jpg');
+    await expect(deleteFile).toHaveBeenCalledWith('avatar.jpg');
 
-    expect(user.avatar).toBe('avatar2.jpg');
+    await expect(user.avatar).toBe('avatar2.jpg');
   });
 });
